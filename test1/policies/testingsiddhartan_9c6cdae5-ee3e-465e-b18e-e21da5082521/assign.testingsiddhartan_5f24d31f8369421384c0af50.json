@@ -1,0 +1,32 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "testingsiddhartan",
+  "policyDefinitionId": "/subscriptions/79c050cd-e8b4-4b9d-b0a5-d2f427e12246/providers/Microsoft.Authorization/policyDefinitions/9c6cdae5-ee3e-465e-b18e-e21da5082521",
+  "scope": "/subscriptions/79c050cd-e8b4-4b9d-b0a5-d2f427e12246",
+  "notScopes": [],
+  "parameters": {
+   "allowedDNSIPs": {
+    "value": [
+     ""
+    ]
+   }
+  },
+  "description": "",
+  "metadata": {
+   "assignedBy": "Shivanvitha Tipparaju",
+   "parameterScopes": {},
+   "createdBy": "3b9f68ac-1229-4e52-bbbf-a76589255029",
+   "createdOn": "2022-10-14T09:41:39.659906Z",
+   "updatedBy": "3b9f68ac-1229-4e52-bbbf-a76589255029",
+   "updatedOn": "2022-10-14T10:29:21.1551713Z"
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/subscriptions/79c050cd-e8b4-4b9d-b0a5-d2f427e12246/providers/Microsoft.Authorization/policyAssignments/5f24d31f8369421384c0af50",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "5f24d31f8369421384c0af50"
+}

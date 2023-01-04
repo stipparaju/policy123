@@ -1,0 +1,56 @@
+{
+ "properties": {
+  "displayName": "testingsiddhartan",
+  "policyType": "Custom",
+  "mode": "All",
+  "metadata": {
+   "createdBy": "3b9f68ac-1229-4e52-bbbf-a76589255029",
+   "createdOn": "2022-10-14T09:41:15.6581695Z",
+   "updatedBy": "3b9f68ac-1229-4e52-bbbf-a76589255029",
+   "updatedOn": "2022-10-14T10:29:09.3597291Z"
+  },
+  "parameters": {
+   "allowedDNSIPs": {
+    "type": "Array",
+    "metadata": {
+     "displayName": "Allowed DNS IPs",
+     "description": "The list of allowed DNS IPs"
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Network/PrivateEndPoints"
+     },
+     {
+      "count": {
+       "field": "Microsoft.Network/privateEndpoints/privateDnsZoneGroups/privateDnsZoneConfigs[*]",
+       "where": {
+        "anyof": [
+         {
+          "field": "Microsoft.Network/privateEndpoints/privateDnsZoneGroups/privateDnsZoneConfigs[*].privateDnsZoneId",
+          "notIn": "[parameters('allowedDNSIPs')]"
+         },
+         {
+          "field": "Microsoft.Network/privateEndpoints/privateDnsZoneGroups/privateDnsZoneConfigs[*].privateDnsZoneId",
+          "Like": "[concat(subscription().id,'/*')]"
+         }
+        ]
+       }
+      },
+      "greater": 0
+     }
+    ]
+   },
+   "then": {
+    "effect": "audit"
+   }
+  }
+ },
+ "id": "/subscriptions/79c050cd-e8b4-4b9d-b0a5-d2f427e12246/providers/Microsoft.Authorization/policyDefinitions/9c6cdae5-ee3e-465e-b18e-e21da5082521",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "9c6cdae5-ee3e-465e-b18e-e21da5082521"
+}
